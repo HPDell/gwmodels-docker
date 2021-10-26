@@ -9,3 +9,4 @@ cmake -DARMADILLO_INCLUDE_DIR=/usr/local/include \
       -DARMADILLO_LIBRARY=/usr/local/lib/libarmadillo.a \
       /src
 make $(MAKE_ARGS)
+cp "$dir"/GWmodelS /usr/local/bin/GWmodelS
