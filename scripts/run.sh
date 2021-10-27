@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
 
-/scripts/build.sh "$@"
+/sh/build.sh "$@"
 
 GWmodelS
