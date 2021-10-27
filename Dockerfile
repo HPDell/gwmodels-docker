@@ -1,5 +1,6 @@
 FROM qgis/qgis:release-3_16
-COPY build.sh /build.sh
+ADD scripts /scripts
+RUN chmod 755 /scripts/*
 WORKDIR /root/armadillo
 RUN apt update && apt install wget
 RUN wget -qO- http://sourceforge.net/projects/arma/files/armadillo-9.900.6.tar.xz |\
@@ -9,4 +10,5 @@ RUN wget -qO- http://sourceforge.net/projects/arma/files/armadillo-9.900.6.tar.x
 RUN sed -i "s/layertree\/qgslegendpatchshape.h/qgslegendpatchshape.h/g" /usr/include/qgis/qgsstyle.h &&\
     curl -o /usr/include/qgis/qgswebframe.h\
     https://raw.githubusercontent.com/qgis/QGIS/2d1aa68f0d044f2aced7ebeca8d2fa6b754ac970/src/core/qgswebframe.h 
-WORKDIR /root/build-gwmodels
+WORKDIR /build
+ENTRYPOINT [ "/scripts/run.sh" ]
