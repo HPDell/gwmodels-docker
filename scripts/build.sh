@@ -2,7 +2,7 @@
 
 if [ $# -eq 0 ] 
 then
-    dir=${pwd}
+    dir=`pwd`
 else
     dir="$1"
     if [ ! -d "$dir" ] 
